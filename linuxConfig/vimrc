@@ -276,8 +276,23 @@ endtry
 " Always show the status line
 set laststatus=2
 
+hi User1 guifg=#eea040 guibg=#ffffff
+hi User2 guifg=#dd3333 guibg=#ffffff
+hi User3 guifg=#ff66ff guibg=#ffffff
+hi User4 guifg=#a0ee40 guibg=#ffffff
+hi User5 guifg=#eeee40 guibg=#ffffff
+
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+set statusline=
+set statusline +=\ %n\ %*            "buffer number
+set statusline +=%{&ff}%*            "file format
+set statusline +=%y%*                "file type
+set statusline +=\ %<%F%*            "full path
+set statusline +=%m%*                "modified flag
+set statusline +=%=%5l%*             "current line
+set statusline +=/%L%*               "total lines
+set statusline +=%4v\ %*             "virtual column number
+set statusline +=0x%04B\ %*          "character under cursor
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
