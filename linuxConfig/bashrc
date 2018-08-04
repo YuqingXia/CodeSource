@@ -1,53 +1,74 @@
-#!/bin/bash.exe
 
 unset MAILCHECK
+
 ulimit -c 0
 
+
 #HOME="/home/mobaxterm"
+
 NP=0
-PROMPT_COMMAND='r0=$?;if [ -z "$NP" ]; then i0=0;s0="";while [ "$i0" -lt "${COLUMNS:-80}" ];do s0="q$s0";i0=$[$i0+1];done;builtin echo -ne "\n\E[1;30m\E(0$s0\E(B\E[0m"; [ $r0 == 0 ] && builtin echo -ne "\e[1A\e[32m\e(0d\e(B\e[0m\e[1B" || builtin echo -ne "\e[1A\e[31m\e(0e\e(B\e[0m\e[1B";else unset NP;fi;'
-PS1='\[\033]0;$PWD\007\]
-\[\033[33m\][\D{%Y-%m-%d %H:%M.%S}]\[\033[0m\]  \[\033[35m\]\w\[\033[0m\]
-\[\033[36m\][\u.\h]\[\033[0m\] \[\033(0\]b\[\033(B\] '
-#export HOME PS1 PROMPT_COMMAND NP
-export PS1 PROMPT_COMMAND NP
+
+PROMPT_COMMAND=""
+#'r0=$?;if [ -z "$NP" ]; then i0=0;s0="";while [ "$i0" -lt "${COLUMNS:-80}" ];do s0="q$s0";i0=$[$i0+1];done;builtin #echo -ne "\n\E[1;30m\E(0$s0\E(B\E[0m"; [ $r0 == 0 ] && builtin echo -ne "\e[1A\e[32m\e(0d\e(B\e[0m\e[1B" || builtin #echo -ne "\e[1A\e[31m\e(0e\e(B\e[0m\e[1B";else unset NP;fi;'
+
+PS1='\[\033[33m\][\D{%Y-%m-%d %H:%M.%S}]\[\033[0m\]  \[\033[35m\]\w\[\033[0m\]
+\[\033[36m\][\u.\h $env]\[\033[0m\] '
+
+export PS1
+
+
 
 HISTCONTROL=ignoredups
+
 #HISTFILE=/home/mobaxterm/.bash_history
+
 HISTSIZE=16000
+
 TMOUT=0
+
 export HISTCONTROL  HISTSIZE TMOUT
+
 shopt -s nocaseglob
+
 shopt -s checkwinsize
-shopt -s dotglob
+
 
 
 # setup path
-PATH=$PATH:$HOME/bin
-export PATH
 
-#LD_LIBRARY_PATH
-LD_LIBRARY_PATH=$HOME/Program/petsc/lib:$HOME/Program/slepc/lib
-export LD_LIBRARY_PATH
-
-#export other global variable
-export PETSC_DIR=/home/XYQ/Program/petsc
-export SLEPC_DIR=$HOME/Program/slepc
+export PATH=~/anaconda3/bin:$PATH
+export PATH=~/bin:$PATH
 
 # alias 
+
 #stupidity prevention
+
 alias rm="rm -i"
+
 alias mv="mv -i"
+
 alias cp="cp -i"
+
 alias df="df -k"
+
 alias du="du -k"
+
 alias vi="vim"
+
 alias ls="ls -h  --color=auto"
+
 alias ll="ls -l --color=auto"
+
 alias ssh="ssh -XY"
 
+
+
 # useful stuff
+
 alias k="exit"
 
+
+
 #specific environment
+
 export LANG=en_US.UTF-8
