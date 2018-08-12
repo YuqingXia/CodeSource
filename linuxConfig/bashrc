@@ -66,7 +66,7 @@ alias ssh="ssh -XY"
 # useful stuff
 
 alias k="exit"
-
+alias psJobInfo="ps -o pid,sess,cmd afx"
 
 
 #specific environment
